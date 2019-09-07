@@ -1,0 +1,24 @@
+Q1(a)
+1.Easy to program and call
+2.Reduce the length of code
+3.Avoided problems of wrong assignment of variables
+(b)
+FUNCTION FindCD(ArtistToFind: STRING, TitleToFind : STRING)
+    DECLARE ArtistName AS STRING
+    DECLARE CDTitle AS STRING
+    DECLARE Location AS STRING
+    DECLARE LocationToFind AS STRING    
+    Location ← ""
+    OPENFILE MyCDs.txt FOR READ
+    WHILE Location = ""
+        READFILE MyCDs.txt, ArtistName
+        READFILE MyCDs.txt, CDTitle
+        READFILE MyCDs.txt, Location
+        IF ArtistToFind = Artist AND TitleToFind = CDTitle
+            THEN
+                Location = LocationToFind
+        ENDIF
+    ENDWHILE
+    CLOSEFILE MyCDs.txt
+    RETURN LocationToFind
+ENDFUNCTION
